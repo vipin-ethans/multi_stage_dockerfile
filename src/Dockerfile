@@ -1,0 +1,16 @@
+# Use a full Maven image (Contains JDK, Maven, etc.)
+FROM maven:3.8.5-openjdk-17
+
+# Set working directory
+WORKDIR /app
+
+# Copy all project files
+COPY pom.xml .
+COPY src ./src
+
+# Build the Java application
+RUN mvn clean package
+
+# Run the application
+CMD ["java", "-jar", "target/*.jar"]
+

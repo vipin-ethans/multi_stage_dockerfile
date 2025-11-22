@@ -10,7 +10,7 @@ COPY src ./src
 RUN mvn clean package
 
 # Stage 2: Minimal Runtime Image
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:21-jre
 
 # Set working directory
 WORKDIR /app
